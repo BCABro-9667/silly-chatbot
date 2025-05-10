@@ -25,7 +25,7 @@ const App = () => {
     setLoading(true);
     setAnswer("");
     try {
-      const response = await axios.post('http://localhost:5000/api/sillybot', {
+      const response = await axios.post('https://chatbaotbackend.onrender.com/api/sillybot', {
         question,
       });
       setAnswer(response.data.answer || 'No response from SillyBot!');
