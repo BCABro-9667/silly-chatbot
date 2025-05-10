@@ -211,7 +211,11 @@ input {
   }
   
   .bot-image {
-    max-width: 200px;
+    max-width: 150px;
+  }
+
+  .chat-box{
+     min-height: 220px;
   }
 }
 
@@ -259,4 +263,52 @@ nav h1 svg {
 /* Dark mode transition smoother */
 body, .app-container {
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+
+/* Connection Status Styles */
+.connection-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 1rem;
+  text-align: center;
+}
+
+.connection-status p {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+.retry-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.retry-btn:hover {
+  background: var(--primary-light);
+}
+
+.welcome-message {
+  text-align: center;
+  color: var(--primary-light);
+  font-size: 1.2rem;
+  padding: 2rem;
+}
+
+/* Disabled input state */
+input:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  border-color: #ccc;
 }
