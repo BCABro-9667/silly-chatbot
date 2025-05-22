@@ -1,10 +1,10 @@
 :root {
-  --primary: #8a2be2;
-  --primary-light: #b57edc;
+  --primary: #007bff; /* A professional blue */
+  --primary-light: #66b2ff; /* Lighter blue */
   --text-dark: #333;
   --text-light: #f8f8f8;
-  --bg-light: #f5f5f5;
-  --bg-dark: #1a1a1a;
+  --bg-light: #ffffff; /* Clean white background */
+  --bg-dark: #2c3e50; /* Darker background for dark mode */
 }
 
 /* Light Mode */
@@ -25,9 +25,7 @@
 
 body {
   margin: 0;
-  font-family: "Cal Sans", sans-serif;
-    font-family: "Josefin Sans", sans-serif;
-
+  font-family: "Roboto", sans-serif; /* Use Roboto for a professional look */
   background-color: var(--bg-color);
   color: var(--text-color);
   transition: all 0.3s ease;
@@ -45,9 +43,7 @@ nav {
   background: var(--primary);
   color: white;
   box-shadow: var(--shadow);
-    font-family: "Lilita One", sans-serif;
-  font-family: "Pacifico", cursive;
-
+  font-family: "Roboto", sans-serif;
 }
 
 .toggle-btn {
@@ -67,7 +63,7 @@ nav {
 
 .chat-container {
   display: flex;
-  padding: 2rem;
+  padding: 3rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
   gap: 2rem;
@@ -76,7 +72,7 @@ nav {
 .bot-image-container {
   flex: 1;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: flex-start;
 }
 
@@ -85,7 +81,6 @@ nav {
   max-width: 300px;
   border-radius: 20px;
   /* box-shadow: var(--shadow); */
-  animation: float 3s ease-in-out infinite;
 }
 
 .chat-area {
@@ -96,12 +91,14 @@ nav {
 }
 
 .chat-box {
-  min-height: 300px;
+  min-height: 300px; /* Increased height for more content */
   background: var(--card-bg);
-  border-radius: 15px;
+  border-radius: 12px; /* Slightly larger border radius */
+  overflow-y: auto; /* Enable scrolling for long chat histories */
   padding: 1.5rem;
   box-shadow: var(--shadow);
   font-size: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.22);
 }
 
 .bot-response {
@@ -113,40 +110,38 @@ nav {
   gap: 1rem;
 }
 
+/* Input field styling */
 input {
   flex: 1;
-  padding: 2rem 1rem;
-  border: 2px solid var(--primary);
+  padding: 1rem;
+  border: 1px solid #ccc; /* Lighter border */
   border-radius: 20px;
   font-size: 1rem;
   outline: none;
   background: var(--card-bg);
   color: var(--text-color);
+  transition: border-color 0.3s ease; /* Smooth transition for border */
 }
 
+input:focus {
+  border-color: var(--primary); /* Highlight border on focus */
+}
+
+/* Ask button styling */
 .ask-btn {
   background: var(--primary);
   color: white;
   border: none;
   border-radius: 20px;
-  padding: 0 2rem;
-  font-size: 1rem;
+  padding: 0.8rem 2rem; /* Increased padding */
+  font-size: 1.1rem; /* Slightly larger font size */
   cursor: pointer;
   transition: all 0.3s ease;
-}
-
-.ask-btn:hover {
-  background: var(--primary-light);
 }
 
 .ask-btn:disabled {
   opacity: 0.7;
   cursor: not-allowed;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
 }
 
 /* Responsive Design */
@@ -157,7 +152,7 @@ input {
   }
   
   .bot-image {
-    max-width: 200px;
+    max-width: 150px;
     margin: 0 auto;
   }
 }
@@ -177,22 +172,6 @@ input {
 @keyframes fall {
   0% { transform: translateY(0) rotate(0deg); }
   100% { transform: translateY(100vh) rotate(360deg); }
-}
-
-/* Bouncing Bot Image */
-.bounce {
-  animation: bounce 0.5s infinite alternate;
-}
-
-@keyframes bounce {
-  from { transform: translateY(0); }
-  to { transform: translateY(-10px); }
-}
-
-/* Send Icon Animation */
-.send-icon {
-  transition: transform 0.3s ease;
-  font-size: x-large;
 }
 
 .ask-btn:hover .send-icon {
@@ -219,6 +198,20 @@ input {
   }
 }
 
+@media (max-width: 480px) {
+  nav {
+    padding: 0.5rem 1rem;
+  }
+
+  .chat-container {
+    padding: 0.5rem;
+  }
+
+  .input-area {
+    flex-direction: column;
+  }
+}
+
 
 /* Add these to your existing CSS */
 
@@ -242,16 +235,6 @@ nav h1 svg {
 
 .ask-btn:hover .send-icon {
   transform: translateX(3px) translateY(-2px);
-}
-
-/* Loading animation */
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-
-.loading-icon {
-  animation: pulse 1.5s infinite;
 }
 
 /* Bot response icon styling */
